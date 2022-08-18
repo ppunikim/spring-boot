@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<h3>도서정보</h3>
+<form method="POST" class="w3-container">
+    <div>
+        <label class="w3-text-blue">ISBN</label>
+        <input name="isbn" placeholder="도서번호" class="w3-input"/>
+    </div>
+    <div>
+        <label class="w3-text-blue">도서명</label>
+        <input name="title" placeholder="도서명" class="w3-input"/>
+    </div>
+    <div>
+        <label class="w3-text-blue">출판사</label>
+        <input name="comp" placeholder="출판사" class="w3-input"/>
+    </div>
+    <div>
+        <label class="w3-text-blue">저자</label>
+        <input name="author" placeholder="저자" class="w3-input"/>
+    </div>
+    <div>
+        <label class="w3-text-blue">출판연도</label>
+        <input name="pubdate" placeholder="출판연도" class="w3-input"/>
+    </div>
+    <div>
+        <label class="w3-text-blue">정가</label>
+        <input name="price" type="number" class="w3-input"/>
+    </div>
+    <div><button class="w3-button w3-pink">저장</button></div>
+</form>
+<br/>
+<div class="w3-container">
+    <table class="w3-table w3-table-all">
+        <thead>
+            <tr>
+                <th>isbn</th>
+                <th>author</th>
+                <th>company</th>
+                <th>price</th>
+                <th>pubdate</th>
+                <th>title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book:${BOOK}">
+                <td th:text="${book.isbn}">isbn</td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.comp}"></td>
+                <td th:text="${book.price}"></td>
+                <td th:text="${book.pubdate}"></td>
+                <td th:text="${book.title}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
