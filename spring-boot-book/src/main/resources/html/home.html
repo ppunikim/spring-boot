@@ -10,27 +10,27 @@
 <form method="POST" class="w3-container">
     <div>
         <label class="w3-text-blue">ISBN</label>
-        <input name="isbn" placeholder="도서번호" class="w3-input"/>
+        <input name="isbn" placeholder="도서번호" class="w3-input" th:value="${BOOK.isbn}"/>
     </div>
     <div>
         <label class="w3-text-blue">도서명</label>
-        <input name="title" placeholder="도서명" class="w3-input"/>
+        <input name="title" placeholder="도서명" class="w3-input" th:value="${BOOK.title}"/>
     </div>
     <div>
         <label class="w3-text-blue">출판사</label>
-        <input name="comp" placeholder="출판사" class="w3-input"/>
+        <input name="comp" placeholder="출판사" class="w3-input" th:value="${BOOK.comp}"/>
     </div>
     <div>
         <label class="w3-text-blue">저자</label>
-        <input name="author" placeholder="저자" class="w3-input"/>
+        <input name="author" placeholder="저자" class="w3-input" th:value="${BOOK.author}"/>
     </div>
     <div>
         <label class="w3-text-blue">출판연도</label>
-        <input name="pubdate" placeholder="출판연도" class="w3-input"/>
+        <input name="pubdate" placeholder="출판연도" class="w3-input" th:value="${BOOK.pubdate}"/>
     </div>
     <div>
         <label class="w3-text-blue" value="0">정가</label>
-        <input name="price" type="number" class="w3-input"/>
+        <input name="price" type="number" class="w3-input" th:value="${BOOK.price}"/>
     </div>
     <div><button class="w3-button w3-pink">저장</button></div>
 </form>
@@ -48,7 +48,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="book:${BOOK}" th:attr= "data-isbn=${book.isbn}">
+            <tr th:each="book:${BOOKS}" th:attr= "data-isbn=${book.isbn}">
                 <td th:text="${book.isbn}">isbn</td>
                 <td th:text="${book.author}"></td>
                 <td th:text="${book.comp}"></td>
@@ -63,12 +63,14 @@
     document.addEventListener("DOMContentLoaded",()=>{
         const books_table = document.querySelector("table.books")
         books_table?.addEventListener("click",(e)=>{
-            const td = e.target
-            const tr = td.closest("TR")
-            const isbn = tr?.dataset.isbn
-            alert("안녕.나는 테이블이야." + isbn)
-        })
-    })
+            const td = e.target;
+            const tr = td.closest("TR");
+            const isbn = tr?.dataset.isbn;
+            document.location.href="/?code="+isbn
+            ;
+
+        });
+    });
 </script>
 </body>
 </html>
