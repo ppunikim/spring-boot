@@ -31,7 +31,7 @@ public class HomeController {
             log.debug("findByData{}", bookVO);
         }
         model.addAttribute("BOOKS",bookList);
-        return "home";
+        return "index";
 
     }
 

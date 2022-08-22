@@ -35,6 +35,11 @@ public class BookVO {
     @Column(length = 10)    //2022-09-16 이런식으로 10자리만 사용할 것이다.
     private String pubdate; //출판일
 
+
+    /*
+        변수형이 int 형일 경우, 기본값이 not null 로 설정되므로
+        임의로 nullable 을 true 로 하여 not null 을 해제한다.
+     */
     @Column(nullable = true)
     private int price;      //정가
 }
