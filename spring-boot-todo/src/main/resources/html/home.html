@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="ko>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>home</title>
 </head>
 <body>
-
+<h3>여기는 home</h3>
+<a href="/todo">todoList</a>
+<div></div>
+<table>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>할일</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="todo:${TODO}">
+            <td th:text="${todo.seq}"></td>
+            <td th:text="${todo.todo}"></td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
