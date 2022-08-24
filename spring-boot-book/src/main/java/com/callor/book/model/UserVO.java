@@ -12,7 +12,8 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
+// 이것은 OneToMany 와 충돌하여 오류가 생긴다.
 @Builder
 
 @Entity
@@ -71,5 +72,17 @@ public class UserVO implements UserDetails {
                 fetch = FetchType.LAZY)
     private Set<UserRole> userRoles;
 
-
+    @Override
+    public String toString() {
+        return "UserVO{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", email='" + email + '\'' +
+                ", realname='" + realname + '\'' +
+                '}';
+    }
 }

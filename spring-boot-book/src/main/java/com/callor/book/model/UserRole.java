@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+//@ToString
 @Builder
 
 @Entity
@@ -36,4 +36,13 @@ public class UserRole {
     @JoinColumn(name="username",referencedColumnName = "username",
                 insertable = false,updatable = false)
     private UserVO userVO;
+
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "seq=" + seq +
+                ", username='" + username + '\'' +
+                ", rolename='" + rolename + '\'' +
+                '}';
+    }
 }
